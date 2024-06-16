@@ -3,111 +3,393 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Analyst Presentation</title>
+    <title>Adam Sadaka</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
+            background-color: #111;
+            color: #fff;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            line-height: 1.6;
         }
-
         header {
-            background-color: #4CAF50;
-            color: white;
+            background: #222;
+            padding: 20px;
             text-align: center;
-            padding: 1em 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
-
-        nav ul {
-            list-style: none;
+        header nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        header .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        header ul {
+            list-style-type: none;
+            margin: 0;
             padding: 0;
-            background-color: #333;
-            overflow: hidden;
-            text-align: center;
+            display: flex;
+            gap: 15px;
         }
-
-        nav ul li {
+        header ul li {
             display: inline;
-            margin: 0 1rem;
         }
-
-        nav ul li a {
-            color: white;
+        header ul li a {
+            color: #fff;
             text-decoration: none;
-            padding: 14px 20px;
-            display: inline-block;
+            padding: 10px 15px;
+            transition: background 0.3s, color 0.3s;
         }
-
-        nav ul li a:hover {
-            background-color: #4CAF50;
+        header ul li a:hover {
+            background: #007bff;
+            color: #fff;
+            border-radius: 5px;
         }
-
-        section {
-            padding: 2em;
-            margin: 2em 0;
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        footer {
-            background-color: #333;
-            color: white;
+        .hero {
+            padding: 100px 20px;
             text-align: center;
-            padding: 1em 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
+            background: linear-gradient(to right, #007bff, #00c6ff);
+            color: #fff;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
         }
-
-        a {
-            color: #4CAF50;
+        .hero h1 {
+            font-size: 3em;
+            margin: 0.5em 0;
+            animation: fadeInDown 1s;
+        }
+        .hero p {
+            font-size: 1.2em;
+            margin: 0.5em 0;
+            animation: fadeInUp 1s;
+        }
+        .hero .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #fff;
+            color: #007bff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s, color 0.3s;
+            animation: fadeIn 1.5s;
+        }
+        .hero .btn:hover {
+            background: #007bff;
+            color: #fff;
+        }
+        .worked-with {
+            text-align: center;
+            padding: 50px 20px;
+        }
+        .worked-with .logos img {
+            margin: 0 20px;
+            width: 100px;
+            filter: grayscale(100%);
+            transition: filter 0.3s;
+        }
+        .worked-with .logos img:hover {
+            filter: none;
+        }
+        .help {
+            background: #333;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .help .help-cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .help .card {
+            background: #444;
+            padding: 20px;
+            width: 300px;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .help .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+        .cheat-sheet {
+            padding: 50px 20px;
+            text-align: center;
+            background: #222;
+        }
+        .cheat-sheet form {
+            margin-top: 20px;
+        }
+        .cheat-sheet input[type="email"] {
+            padding: 10px;
+            width: 300px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        .cheat-sheet button {
+            padding: 10px 20px;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .cheat-sheet button:hover {
+            background: #0056b3;
+        }
+        .about {
+            padding: 50px 20px;
+            text-align: center;
+            background: #333;
+        }
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .about-content img {
+            width: 200px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+        .comments {
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .comment-cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .comment-card {
+            background: #444;
+            padding: 20px;
+            width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+        .check-out {
+            padding: 50px 20px;
+            text-align: center;
+            background: #222;
+        }
+        .check-out-cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .check-out-card {
+            background: #444;
+            padding: 20px;
+            width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .check-out-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+        .check-out .btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s, color 0.3s;
+        }
+        .check-out .btn:hover {
+            background: #0056b3;
+        }
+        footer {
+            background: #111;
+            color: #ccc;
+            text-align: center;
+            padding: 20px;
+        }
+        footer .newsletter {
+            margin-bottom: 20px;
+        }
+        footer form {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        footer input[type="text"],
+        footer input[type="email"] {
+            padding: 10px;
+            width: 200px;
+            border: none;
+            border-radius: 5px;
+        }
+        footer button {
+            padding: 10px 20px;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        footer button:hover {
+            background: #0056b3;
+        }
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>John Doe - Data Analyst</h1>
-        <p>Transforming Data into Insightful Decisions</p>
+        <nav>
+            <div class="logo">Adam Sadaka</div>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Courses</a></li>
+                <li><a href="#">Log In</a></li>
+            </ul>
+        </nav>
+        <div class="hero">
+            <h1>Data Nerds! I'm Adam</h1>
+            <p>I'm a data analyst, YouTuber, and former submariner</p>
+            <p>I help data nerds be more productive.</p>
+            <a href="#" class="btn">Checkout My New Course 🚀</a>
+        </div>
     </header>
-    <nav>
-        <ul>
-            <li><a href="#about">About Me</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Experienced Data Analyst with a demonstrated history of working in the retail industry. Skilled in data analysis, data visualization, and machine learning.</p>
+    <section class="worked-with">
+        <h2>Previously Worked With:</h2>
+        <div class="logos">
+            <img src="logo1.png" alt="Logo 1">
+            <img src="logo2.png" alt="Logo 2">
+            <img src="logo3.png" alt="Logo 3">
+        </div>
     </section>
-    <section id="skills">
-        <h2>Skills</h2>
-        <ul>
-            <li>Data Analysis</li>
-            <li>Data Visualization</li>
-            <li>Machine Learning</li>
-            <li>SQL</li>
-            <li>Python</li>
-        </ul>
+    <section class="help">
+        <h2>How Can I Help You?</h2>
+        <div class="help-cards">
+            <div class="card">
+                <h3>Master Data Nerd Skills</h3>
+                <p>Learn the highest paying and most in-demand skills of data enthusiasts.</p>
+            </div>
+            <div class="card">
+                <h3>Transition to a New Career</h3>
+                <p>Pivot to a career that not only you love, but also pays you for your worth.</p>
+            </div>
+            <div class="card">
+                <h3>Boost Productivity</h3>
+                <p>Stay up to date with newest technologies data nerds use to automate tasks.</p>
+            </div>
+        </div>
     </section>
-    <section id="projects">
-        <h2>Projects</h2>
-        <ul>
-            <li>Sales Data Dashboard</li>
-            <li>Customer Segmentation</li>
-            <li>Predictive Analytics for Sales Forecasting</li>
-        </ul>
+    <section class="cheat-sheet">
+        <h2>Get My ChatGPT Cheat Sheet</h2>
+        <p>Here's my one-page cheat sheet that has all the settings, custom instructions, and prompts that I use on a daily basis to have ChatGPT automate my data analytic tasks.</p>
+        <p>I'll also be sending you my weekly newsletter, which is packed with the latest tips and news for data nerds</p>
+        <form>
+            <input type="email" placeholder="Email">
+            <button type="submit">Send Me The Cheat Sheet 📄</button>
+        </form>
     </section>
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: john.doe@example.com</p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/johndoe">linkedin.com/in/johndoe</a></p>
+    <section class="about">
+        <h2>Heyo! 👋 I'm Adam</h2>
+        <p>Data analyst, YouTuber, and engineer. I help data nerds be more productive.</p>
+        <div class="about-content">
+            <img src="adam.jpg" alt="Adam">
+            <div>
+                <p>My YouTube channel has gained more than 400K subscribers over the past couple of years, and it's where I like to share my learning journey as a data professional. 🤓</p>
+                <p>After I finished my time in the U.S. Navy's submarine force, I didn't know what I wanted to do with my life. 🛳️ So I did what all my friends were doing; I got my MBA and started working in a management position. 😎</p>
+                <p>Well, it turns out I liked helping others with their data problems more than managing people, so I decided to go full-time on YouTube. And ever since then, I've been working to share my love for data. ✌️</p>
+            </div>
+        </div>
+    </section>
+    <section class="comments">
+        <h2>My Favorite Comments</h2>
+        <div class="comment-cards">
+            <div class="comment-card">
+                <p>"After hundreds of rejected applications, 1 startup company said YES, and now I have a job offering in the data field after a 4 years career break. I could not thank you enough for your videos. YOU ARE THE BEST ADAM!"</p>
+                <p>- Fitrie Ratnasarie, on YouTube</p>
+            </div>
+            <div class="comment-card">
+                <p>"I come from an education background and made a career shift. Your videos inspired me to become a data analyst. And a week ago I started my first job as a Finance Data Analyst at Citi. Thank you so much for all your tips and advice."</p>
+                <p>- Kendall Roda, on YouTube</p>
+            </div>
+            <div class="comment-card">
+                <p>"[Your] video has changed my career, I remember one year ago when my friend told me to watch this video and pursue this certification. I'm glad I did and after putting in a lot of hard work, I'm officially working as a data analyst!"</p>
+                <p>- Shubham Batra, on YouTube</p>
+            </div>
+        </div>
+    </section>
+    <section class="check-out">
+        <h2>Also Check Out</h2>
+        <div class="check-out-cards">
+            <div class="check-out-card">
+                <h3>What Are The Top Skills For Data Nerds?</h3>
+                <p>Well, I built a free app for that!</p>
+                <a href="#" class="btn">Check Out My App 📱</a>
+            </div>
+            <div class="check-out-card">
+                <h3>Tech News Updates</h3>
+                <p>This is my second YouTube channel.</p>
+                <a href="#" class="btn">Watch Now 🎥</a>
+            </div>
+        </div>
     </section>
     <footer>
-        <p>&copy; 2024 John Doe</p>
+        <section class="newsletter">
+            <h2>Unlock the Secrets of Productive Data Nerds</h2>
+            <p>Join a network of thousands of data nerds and be the first to get:</p>
+            <ul>
+                <li>The latest news in data and AI</li>
+                <li>Behind-the-scenes commentary from my latest videos</li>
+                <li>A sneak peek at upcoming events and webinars</li>
+            </ul>
+            <form>
+                <input type="text" placeholder="Name">
+                <input type="email" placeholder="Email">
+                <button type="submit">Subscribe 📧</button>
+            </form>
+        </section>
+        <p>© 2024 Adam Sadaka</p>
     </footer>
 </body>
 </html>
